@@ -1,12 +1,15 @@
-checkout: http://liveitupsocial.herokuapp.com/
-plan:
-1.Welcome page:
-- background image
-- login bootstrap form
-- signup bootstrap form
-- rails authentication, password digest
-- google OAuth and facebook oauth
-2. Dashboard page:
+Checkout: http://liveitupsocial.herokuapp.com/  
 
+**Plan:**
 
-3. Ride details page:
+1. *Welcome page:*
+
+- Background image  
+- Login Bootstrap form  
+- Signup Bootstrap form  
+- Rails authentication, password digest  
+- Google OAuth and Facebook Oauth  
+
+2. *Dashboard page:*
+
+3. *Ride details page:*
