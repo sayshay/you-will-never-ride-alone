@@ -4,6 +4,8 @@ class CreateRides < ActiveRecord::Migration
       t.string :starting_city
       t.string :ending_city
       t.integer :distance_in_miles
+      
+      t.timestamps
     end
   end
 end
