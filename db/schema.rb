@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141204221215) do
+ActiveRecord::Schema.define(version: 20141205035801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "companions", force: true do |t|
+  create_table "compnaionships", force: true do |t|
     t.integer  "ride_id"
     t.integer  "driver_id"
     t.integer  "passenger_id"
