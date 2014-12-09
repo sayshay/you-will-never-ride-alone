@@ -9,61 +9,84 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+  </head>
 
-<body>
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><%= link_to "Sign Up", new_user_path %></li>
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <% unless session[:user_id] %> 
+              <li><a data-toggle="modal" data-target="#logInModal">
+                Log In
+              </a>
+              </li>
+            <% else %>
+              <li>
+              <%= link_to "Log Out", signout_path, method: :delete %>
+              </li>
+            <% end %>
           <!-- Button trigger modal -->
-          <li> <a data-toggle="modal" data-target="#myModal">
+          <li><a data-toggle="modal" data-target="#signUpModal">
             Sign Up
           </a>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Link</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profile <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-  <%= yield %>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-9"></div>
-      <div class="col-xs-3"></div>
-    </div>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profile <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<%= yield %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-9"></div>
+    <div class="col-xs-3"></div>
   </div>
+</div>
 
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
-        </div>
-        <div class="modal-body">
-          <%= render 'users/signup_form' %>
-        </div>
-
+<!-- Modal -->
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="signUpModalLabel">Sign Up</h4>
       </div>
+      <div class="modal-body">
+        <%= render 'users/signup_form' %>
+      </div>
+
     </div>
   </div>
+</div>
+<div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="logInLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="logInLabel">Log In</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'sessions/new' %>
+      </div>
+
+    </div>
+  </div>
+</div>
 </body>
 </html>
