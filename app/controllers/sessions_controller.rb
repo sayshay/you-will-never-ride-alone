@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:signin][:password])
       session[:user_id] = user.id
       flash[:notice] = "Signed in successfully."
-      redirect_to users_path
+      redirect_to rides_path
     else
       flash[:error] = "Sorry."
       render :new
@@ -16,6 +16,6 @@ class SessionsController < ApplicationController
   
   def destroy
     session.clear
-    redirect_to rides_path
+    redirect_to root_path
   end
 end
