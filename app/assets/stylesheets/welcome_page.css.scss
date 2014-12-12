@@ -2,16 +2,14 @@
   background: url('background-road.jpg');
 }*/
 #homepage_body {
-  background-image: url('http://hdwallpaperfun.com/wp-content/uploads/2014/09/Mountain-Road-Wallpaper-High-Resolution-462435.jpg');
+  background-image: url('background2.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-repeat: none;
-
   height: 900px;
-
   background-position: center center;
 }
-.navbar{
-  margin-bottom: 30px;
-}
 
+.navbar.navbar-default{
+  margin-bottom: 0px;
+}

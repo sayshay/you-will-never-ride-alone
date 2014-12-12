@@ -1,8 +1,8 @@
-<h1>Log in</h1>
+<h1>Log in Form</h1>
 <%= form_for :signin, method: "POST", url: '/signin' do |f| %>
 <ul class="zero list-unstyled">
   <li>
-    <p class="form-label">Name</p> 
+    <p class="form-label">Name</p>
     <div class="form-input"><%= f.text_field :name, class: "form-control" %></div>
   </li>
   <li>
